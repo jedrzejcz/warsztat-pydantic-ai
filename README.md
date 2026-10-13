@@ -1,6 +1,6 @@
 # Ćwiczenie: asystent z narzędziami w Pydantic AI
 
-To samo, co w n8n, ale w kodzie. Cały asystent mieści się w jednym pliku `agent.py`: instrukcja, trzy narzędzia i czat w przeglądarce. Zmieniasz instrukcję, dopasowujesz narzędzia i na końcu dopisujesz własne.
+Cały asystent mieści się w jednym pliku `agent.py`: instrukcja, trzy narzędzia i czat w przeglądarce. Zmieniasz instrukcję, dopasowujesz narzędzia i na końcu dopisujesz własne.
 
 **Potrzebujesz:**
 
