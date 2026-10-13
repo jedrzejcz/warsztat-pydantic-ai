@@ -154,7 +154,7 @@ Przyjrzyj się funkcji `pogoda`. Asystent widzi z niej trzy rzeczy:
 - **opis:** tekst w potrójnym cudzysłowie zaraz pod nazwą,
 - **argumenty i ich typy:** `miasto: str` oraz `dni: int`.
 
-*W n8n opis narzędzia wpisywało się w pole „Description". Tutaj jest nim opis funkcji. Asystent wybiera narzędzie wyłącznie na podstawie opisu i Twojej instrukcji.*
+*Asystent nie widzi kodu wewnątrz funkcji. Wybiera narzędzie wyłącznie na podstawie jej opisu i Twojej instrukcji.*
 
 ## Część 3. Zrób z niego swojego asystenta
 
