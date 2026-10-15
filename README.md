@@ -191,7 +191,7 @@ Zastąp tekst między potrójnymi cudzysłowami własnym. Same cudzysłowy musz�
 - **Jak wygląda odpowiedź.** Długość, układ, ton.
 - **Czego nie robisz.** Tematy spoza zakresu i co wtedy odpowiadasz.
 
-Napisz instrukcję samodzielnie, na podstawie opisu z kroku 10. Gotową wersję zajrzyj dopiero wtedy, gdy utkniesz albo chcesz porównać.
+Napisz instrukcję samodzielnie, na podstawie opisu z kroku 10. Do gotowej wersji zajrzyj dopiero wtedy, gdy utkniesz albo zechcesz porównać.
 
 <details>
 <summary>Przykładowa instrukcja (kliknij, żeby rozwinąć)</summary>
@@ -204,8 +204,9 @@ Gdy użytkownik poda miejsce i termin:
 1. Narzędziem kalendarz sprawdź, ile dni zostało do wyjazdu.
 2. Jeśli wyjazd jest w ciągu 7 dni, sprawdź prognozę narzędziem pogoda.
    Jeśli później, napisz, że prognoza nie jest jeszcze dostępna.
-3. Zaproponuj plan na dwa dni: po trzy punkty na każdy dzień.
+3. Zaproponuj plan na dwa dni: po trzy punkty na każdy dzień, dopasowane do pogody.
 
+Jeśli użytkownik poda link, przeczytaj stronę narzędziem czytaj_strone i uwzględnij ją w planie.
 Jeśli użytkownik nie podał miejsca albo terminu, zapytaj o brakującą rzecz i nie zgaduj.
 Odpowiadaj po polsku, najwyżej w 10 wierszach.
 Nie odpowiadasz na pytania niezwiązane z wyjazdami. Wtedy napisz jedno zdanie, czym się zajmujesz.
