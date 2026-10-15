@@ -61,7 +61,11 @@ def kalendarz(data: date | None = None) -> str:
     Użyj zawsze, gdy odpowiedź zależy od dzisiejszej daty lub od liczby dni.
     """
     dni_tygodnia = ["poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota", "niedziela"]
-    teraz = datetime.now(ZoneInfo("Europe/Warsaw"))
+    try:
+        teraz = datetime.now(ZoneInfo("Europe/Warsaw"))
+    except ZoneInfoNotFoundError:
+        # Bez pakietu tzdata Windows nie zna stref czasowych. Wtedy bierzemy zegar komputera.
+        teraz = datetime.now()
     wynik = f"Dzisiaj jest {dni_tygodnia[teraz.weekday()]}, {teraz:%Y-%m-%d}, godzina {teraz:%H:%M}."
     if data:
         dni = (data - teraz.date()).days
