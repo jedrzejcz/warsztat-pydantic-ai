@@ -41,15 +41,15 @@ agent = Agent(MODEL, instructions=INSTRUKCJA)
 
 def pobierz(adres: str, parametry: dict | None = None) -> str:
     """Pobiera zawartość spod podanego adresu jako tekst."""
-    if parametry:
-        adres = f"{adres}?{urlencode(parametry)}"
+    pelny_adres = f"{adres}?{urlencode(parametry)}" if parametry else adres
     try:
-        zapytanie = Request(adres, headers={"User-Agent": "Mozilla/5.0 (warsztat-pydantic)"})
+        zapytanie = Request(pelny_adres, headers={"User-Agent": "Mozilla/5.0 (warsztat-pydantic)"})
         with urlopen(zapytanie, timeout=20) as odpowiedz:
             kodowanie = odpowiedz.headers.get_content_charset() or "utf-8"
             return odpowiedz.read().decode(kodowanie, errors="replace")
     except (OSError, ValueError) as blad:
         # ModelRetry oddaje komunikat asystentowi, zamiast przerywać rozmowę.
+        # Podajemy adres bez parametrów, żeby klucz API nie trafił do czatu.
         raise ModelRetry(f"Nie udało się pobrać {adres}: {blad}")
 
 
