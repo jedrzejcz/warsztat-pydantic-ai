@@ -9,7 +9,7 @@ import re
 from datetime import date, datetime
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
-from zoneinfo import ZoneInfo
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 import uvicorn
 from dotenv import load_dotenv
