@@ -72,13 +72,14 @@ pip install -r requirements.txt
 
 ```powershell
 python -m venv .venv
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-Po drugim poleceniu na początku wiersza w terminalu pojawi się `(.venv)`. To znak, że środowisko jest aktywne. Instalacja bibliotek trwa około minuty.
+*Windows domyślnie blokuje uruchamianie skryptów, a polecenie `Activate.ps1` jest skryptem. Druga linia zdejmuje tę blokadę tylko w tym jednym oknie PowerShella i nie wymaga uprawnień administratora. Jeśli ją pominiesz, zobaczysz błąd `running scripts is disabled on this system`.*
 
-*Windows: jeśli drugie polecenie kończy się błędem o „wykonywaniu skryptów", wpisz `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`, zatwierdź i powtórz to polecenie.*
+Po poleceniu z `activate` (`Activate.ps1` na Windowsie) na początku wiersza w terminalu pojawi się `(.venv)`. To znak, że środowisko jest aktywne. Instalacja bibliotek trwa około minuty.
 
 ### 5. Wpisz klucz do modelu
 
@@ -318,7 +319,10 @@ Zmieniaj jedną rzecz naraz, żeby wiedzieć, co pomogło.
 
 ### 21. Zakończ pracę
 
-Wróć do terminala i wciśnij Ctrl+C. Asystent się zatrzyma. Żeby uruchomić go następnym razem, otwórz terminal w folderze z kodem, aktywuj środowisko (druga linia z kroku 4) i wpisz `python agent.py`.
+Wróć do terminala i wciśnij Ctrl+C. Asystent się zatrzyma. Żeby uruchomić go następnym razem, otwórz terminal w folderze z kodem, aktywuj środowisko i wpisz `python agent.py`:
+
+- **macOS i Linux:** `source .venv/bin/activate`
+- **Windows:** `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`, a potem `.venv\Scripts\Activate.ps1`
 
 ## Dla chętnych
 
@@ -329,7 +333,8 @@ Wróć do terminala i wciśnij Ctrl+C. Asystent się zatrzyma. Żeby uruchomić 
 
 | Objaw | Co zrobić |
 |---|---|
-| `python` albo `pip` nie jest rozpoznawane | Środowisko nie jest aktywne. Powtórz drugą linię z kroku 4. |
+| `running scripts is disabled on this system` (Windows) | Wpisz `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` i powtórz `.venv\Scripts\Activate.ps1`. |
+| `python` albo `pip` nie jest rozpoznawane | Środowisko nie jest aktywne. Powtórz polecenie z `activate` z kroku 4. |
 | `ModuleNotFoundError` przy uruchamianiu | Biblioteki nie są zainstalowane w aktywnym środowisku. Powtórz krok 4. |
 | Czat odpowiada błędem 401 | Brakuje pliku `.env` albo klucz jest wklejony z błędem. Wróć do kroku 5. |
 | `Address already in use` | Asystent już działa w innym oknie terminala. Zamknij tamto okno albo wciśnij w nim Ctrl+C. |
