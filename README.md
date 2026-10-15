@@ -4,7 +4,7 @@ Cały asystent mieści się w jednym pliku `agent.py`: instrukcja, trzy narzędz
 
 **Potrzebujesz:**
 
-- komputera z Pythonem 3.10 lub nowszym (krok 1 pokazuje, jak to sprawdzić),
+- komputera z Pythonem 3.11 lub nowszym (krok 1 pokazuje, jak to sprawdzić),
 - klucza API od prowadzącego,
 - dowolnego edytora tekstu. Wystarczy Notatnik albo TextEdit, wygodniejszy będzie [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -37,7 +37,9 @@ Na Windowsie polecenie nazywa się `python`:
 python --version
 ```
 
-Powinna pojawić się wersja, np. `Python 3.12.4`. Liczy się, żeby była to wersja 3.10 lub wyższa.
+Powinna pojawić się wersja, np. `Python 3.12.4`. Liczy się, żeby była to wersja **3.11 lub wyższa**. Na starszej wersji instalacja w kroku 4 się nie uda.
+
+*Jeśli masz kilka wersji Pythona na Windowsie, polecenie `py -0` pokaże je wszystkie. Wtedy w kroku 4 zamiast `python -m venv .venv` wpisz `py -3.12 -m venv .venv`, podając numer najnowszej wersji z listy.*
 
 *Jeśli zamiast wersji widzisz błąd, zainstaluj Pythona ze strony [python.org/downloads](https://www.python.org/downloads/). Na Windowsie zaznacz w instalatorze pole „Add python.exe to PATH". Po instalacji zamknij terminal i otwórz go ponownie.*
 
@@ -335,7 +337,7 @@ Wróć do terminala i wciśnij Ctrl+C. Asystent się zatrzyma. Żeby uruchomić 
 |---|---|
 | `running scripts is disabled on this system` (Windows) | Wpisz `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` i powtórz `.venv\Scripts\Activate.ps1`. |
 | `python` albo `pip` nie jest rozpoznawane | Środowisko nie jest aktywne. Powtórz polecenie z `activate` z kroku 4. |
-| `ModuleNotFoundError` przy uruchamianiu | Biblioteki nie są zainstalowane w aktywnym środowisku. Powtórz krok 4. |
+| `ModuleNotFoundError: No module named 'uvicorn'` | Biblioteki nie są zainstalowane w aktywnym środowisku. Sprawdź, czy na początku wiersza jest `(.venv)`, i powtórz krok 4. Przeczytaj, co wypisuje `pip install`: jeśli kończy się błędem, najczęściej Python jest starszy niż 3.11. |
 | Czat odpowiada błędem 401 | Brakuje pliku `.env` albo klucz jest wklejony z błędem. Wróć do kroku 5. |
 | `Address already in use` | Asystent już działa w innym oknie terminala. Zamknij tamto okno albo wciśnij w nim Ctrl+C. |
 | Zmiana w pliku nic nie dała | Sprawdź w terminalu, czy po zapisie nie pojawił się błąd, i zacznij nową rozmowę. |
